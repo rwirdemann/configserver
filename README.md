@@ -9,17 +9,16 @@ make deploy
 ## Endpoints
 
 ### GET /config
-```
-# Returns config value for the given key as sting in the response body
-curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/{key}
+Returns config value for the given key as sting in the response body.
 
-# HTTP Status Codes
-200: config key exists
+```
+curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/{key}
 ```
 
 ### POST /config
+Creates or updates an existing config key value.
+
 ```
-# Creates or updates an existing config key value
 curl -X POST https://xo94oqzj8e.execute-api.eu-central-1.amazonaws.com/dev/config \
    -H 'Content-Type: application/json' \
    -d '{

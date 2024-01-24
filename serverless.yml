@@ -32,7 +32,7 @@ functions:
     handler: bin/getconfig
     events:
       - http:
-          path: /config
+          path: /config/{key}
           method: GET
           cors: true
   putconfig:

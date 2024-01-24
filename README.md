@@ -1,7 +1,7 @@
 # Simple Config Server
+Some endpoints to maintain simple key / value config items.
 
 ## Deployment
-
 ```
 make deploy
 ```
@@ -10,14 +10,16 @@ make deploy
 
 ### GET /config
 ```
-curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config
+# Returns config value for the given key as sting in the response body
+curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/{key}
 
 # HTTP Status Codes
-200: config key exsits
+200: config key exists
 ```
 
 ### POST /config
 ```
+# Creates or updates an existing config key value
 curl -X POST https://xo94oqzj8e.execute-api.eu-central-1.amazonaws.com/dev/config \
    -H 'Content-Type: application/json' \
    -d '{

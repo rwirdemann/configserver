@@ -18,10 +18,14 @@ curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config
 
 ## AWS CLI Hints
 ```
-aws lambda list-function
-aws lambda get-function-configuration --function-name recruiting-dev-jobs
+aws lambda list-functions
+aws lambda get-function-configuration --function-name config-dev-putconfig
 ```
 
 ```
-saw watch /aws/lambda/recruiting-dev-jobs
+saw watch /aws/lambda/config-dev-putconfig
+```
+
+```
+aws dynamodb scan --table-name ConfigItems
 ```

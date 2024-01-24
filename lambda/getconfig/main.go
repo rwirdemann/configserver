@@ -15,7 +15,7 @@ func main() {
 
 func handler(r events.APIGatewayProxyRequest) events.APIGatewayProxyResponse {
 	return events.APIGatewayProxyResponse{
-		Body:       "https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/jobs/",
+		Body:       "https://77srys74sh.execute-api.eu-central-1.amazonaws.com/dev/jobs",
 		StatusCode: http.StatusOK,
 		Headers: map[string]string{
 			"Access-Control-Allow-Origin":      "*",

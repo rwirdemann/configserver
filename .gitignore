@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+.idea/
+.serverless
+bin
+.env
+http-requests-log.http
+.vscode
+.DS_Store

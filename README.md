@@ -16,6 +16,16 @@ curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config
 200: config key exsits
 ```
 
+### POST /config
+```
+curl -X POST https://xo94oqzj8e.execute-api.eu-central-1.amazonaws.com/dev/config \
+   -H 'Content-Type: application/json' \
+   -d '{
+      "key": "jobdog.publishservice.url",
+      "value": "https://77srys74sh.execute-api.eu-central-1.amazonaws.com/dev/jobs"
+   }'
+```
+
 ## AWS CLI Hints
 ```
 aws lambda list-functions

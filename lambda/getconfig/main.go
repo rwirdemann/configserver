@@ -1,6 +1,8 @@
 package main
 
 import (
+	"errors"
+	"github.com/rwirdemann/configserver/dynamo"
 	"log"
 	"net/http"
 
@@ -16,11 +18,28 @@ func main() {
 
 func handler(r events.APIGatewayProxyRequest) events.APIGatewayProxyResponse {
 	key := r.PathParameters["key"]
-	log.Printf("get request for key '%s'", key)
+	item, err := dynamo.GetConfigItem(key)
+	if err == nil {
+		log.Printf("found config item for key '%s': %s", key, item.Value)
+		return events.APIGatewayProxyResponse{
+			Body:       item.Value,
+			StatusCode: http.StatusOK,
+			Headers: map[string]string{
+				"Access-Control-Allow-Origin":      "*",
+				"Access-Control-Allow-Credentials": "true",
+			},
+		}
+	}
+	status := http.StatusInternalServerError
+	if errors.Is(err, dynamo.NotFound) {
+		log.Printf("config item for key '%s' not found", key)
+		status = http.StatusNotFound
+	} else {
+		log.Printf("error fetching config item for key: '%s': %v", key, err)
+	}
 
 	return events.APIGatewayProxyResponse{
-		Body:       "https://77srys74sh.execute-api.eu-central-1.amazonaws.com/dev/jobs",
-		StatusCode: http.StatusOK,
+		StatusCode: status,
 		Headers: map[string]string{
 			"Access-Control-Allow-Origin":      "*",
 			"Access-Control-Allow-Credentials": "true",

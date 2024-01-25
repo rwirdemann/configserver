@@ -9,10 +9,15 @@ make deploy
 ## Endpoints
 
 ### GET /config
-Returns config value for the given key as sting in the response body.
+Returns config value for the given key as string in the response body.
 
 ```
 curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/{key}
+```
+
+Jobdog example
+```
+curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/jobdog.publishservice.url
 ```
 
 ### POST /config

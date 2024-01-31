@@ -17,7 +17,7 @@ curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/{key}
 
 Jobdog example
 ```
-curl https://jkyszaoly5.execute-api.eu-central-1.amazonaws.com/dev/config/jobdog.publishservice.url
+curl https://xo94oqzj8e.execute-api.eu-central-1.amazonaws.com/dev/config/jobdog.publishservice.url
 ```
 
 ### POST /config
